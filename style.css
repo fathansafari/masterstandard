@@ -1,0 +1,168 @@
+/* style.css */
+
+/* Reset dasar */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* Container utama */
+.page-container {
+    display: flex;
+    min-height: 100vh;
+    transition: margin-left 0.4s ease-in-out;
+}
+
+/* --- Styling Sidebar --- */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #1c3d5a, #122b3e);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: width 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-header .logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Styling daftar link */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    flex-grow: 1;
+}
+
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: #fff;
+    border-left: 4px solid #3498db;
+    transform: translateX(5px);
+}
+
+.nav-links li a i {
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover i {
+    transform: scale(1.1);
+}
+
+/* --- Styling Konten Utama --- */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    transition: margin-left 0.4s ease-in-out;
+}
+
+.main-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: #1c3d5a;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    color: #3498db;
+    transform: rotate(90deg);
+}
+
+.welcome-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s 0.2s forwards ease-out;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-card h1 {
+    color: #1c3d5a;
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.welcome-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* State ketika sidebar ditutup */
+.sidebar-collapsed .sidebar {
+    width: 0;
+}
+
+.sidebar-collapsed .sidebar .sidebar-header,
+.sidebar-collapsed .sidebar .nav-links {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+}
